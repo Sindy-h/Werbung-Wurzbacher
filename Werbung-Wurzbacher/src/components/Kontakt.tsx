@@ -1,6 +1,8 @@
 
 const Kontakt = () => {
     return (
+        <>
+        <h1>Kontakt</h1>
         <section>
             <h2>Nehmen Sie Kontakt mit uns auf</h2>
 
@@ -21,6 +23,7 @@ const Kontakt = () => {
             {/*Map einfügen */}
 
         </section>
+        </>
     )
 }
 
