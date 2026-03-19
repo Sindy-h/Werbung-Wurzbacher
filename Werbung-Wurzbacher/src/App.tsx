@@ -1,35 +1,55 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Logo from './logo/logo'
+import Navbar from './layout/Navbar'
+import Footer from './layout/Footer'
+import ContentHome from './components/ContentHome'
+import ContentBeschriftungen from './components/ContentBeschriftungen'
+import ContentDrucksachen from './components/ContentDrucksachen'
+import ContentTextildruck from './components/ContentTextildruck'
+import ContentDigitaldruck from './components/ContentDigitaldruck'
+import Kontakt from './components/Kontakt'
+import ContentGaestezimmer from './components/ContentGaestezimmer'
+import ContentFerienwohnung from './components/ContentFerienwohnung'
+import backgroundImage from './images/Backgroundimage.jpg'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activePage, setActivePage] = useState('home');
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='max-w-screen-2xl mx-auto min-h-screen flex flex-col'
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+      
+      <header className="p-6">
+        <Logo />
+      </header>
+
+      <div className="flex flex-col md:flex-row flex-grow px-6 pb-6 gap-6 md:gap-12 items-center">
+        <aside className="w-64 flex-shrink-0">
+          <Navbar onSelect={(page: string) => setActivePage(page)} />
+        </aside>
+
+        <main className="flex-1 flex justify-center items-center py-10 content-area bg-white/70 rounded-xl">
+          <div className="w-full max-w-3xl text-black px-6 md:px-12 leading-relaxed min-h-[500px]">
+            {activePage === 'home' && <ContentHome />}
+            {activePage === 'beschriftungen' && <ContentBeschriftungen/>}
+            {activePage === 'drucksachen' && <ContentDrucksachen/>}
+            {activePage === 'textildruck' && <ContentTextildruck/>}
+            {activePage === 'digitaldruck' && <ContentDigitaldruck/>}
+            {activePage === 'kontakt' && <Kontakt/>}
+            {activePage === 'gaestezimmer' && <ContentGaestezimmer/>}
+            {activePage === 'ferienwohnung' && <ContentFerienwohnung/>}
+          </div>
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
