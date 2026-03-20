@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "referenzs",
+  "info": {
+    "singularName": "referenz",
+    "pluralName": "referenzs",
+    "displayName": "Referenz"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Bild": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Kategorie": {
+      "type": "enumeration",
+      "enum": [
+        "beschriftungen",
+        "drucksachen",
+        "textildruck",
+        "digitaldruck",
+        "gaestezimmer",
+        "ferienwohnung"
+      ]
+    }
+  }
+}

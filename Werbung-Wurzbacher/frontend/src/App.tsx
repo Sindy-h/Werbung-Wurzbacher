@@ -28,13 +28,13 @@ function App() {
         <Logo />
       </header>
 
-      <div className="flex flex-col md:flex-row flex-grow px-6 pb-6 gap-6 md:gap-12 items-center">
+      <div className="flex flex-col md:flex-row flex-grow px-6 pb-6 gap-6 md:gap-12 items-start md:items-start">
         <aside className="w-64 flex-shrink-0">
           <Navbar onSelect={(page: string) => setActivePage(page)} />
         </aside>
 
-        <main className="flex-1 flex justify-center items-center py-10 content-area bg-white/70 rounded-xl">
-          <div className="w-full max-w-3xl text-black px-6 md:px-12 leading-relaxed min-h-[500px]">
+        <main className="flex-1 bg-white/70 rounded-xl min-h flex flex-col overflow-hidden mr-8 text-center">
+          <div className="flex-1 overflow-y-auto p-20 md:p-16 custom-scrollbar">
             {activePage === 'home' && <ContentHome />}
             {activePage === 'beschriftungen' && <ContentBeschriftungen/>}
             {activePage === 'drucksachen' && <ContentDrucksachen/>}

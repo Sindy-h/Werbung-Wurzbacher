@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+a {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  animation-duration: 0.9s;
+}
+
+a:hover {
+  animation-name: pulse79;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse79 {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
